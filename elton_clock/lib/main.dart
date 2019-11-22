@@ -1,6 +1,4 @@
 import 'dart:io';
-
-
 import 'package:flutter_clock_helper/customizer.dart';
 import 'package:flutter_clock_helper/model.dart';
 import 'package:flutter/foundation.dart';
@@ -10,7 +8,7 @@ import 'elton_clock.dart';
 import 'dart:io' show Platform;
 
 void main() {
-//  if (!kIsWeb) {
+ if (!kIsWeb) {
    
     if (Platform.isMacOS) {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
@@ -20,6 +18,7 @@ void main() {
        debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
 
     }
-//  }
+
+ }
   runApp(ClockCustomizer((ClockModel model) => EltonClock(model) ));
 }
