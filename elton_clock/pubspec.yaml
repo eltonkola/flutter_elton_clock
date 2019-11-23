@@ -18,3 +18,20 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets :
+    - assets/weather/cloud_and_sun.png
+    - assets/icons/ic_calendar.png
+
+
+  fonts:
+    - family: Saira
+      fonts:
+        - asset: assets/fonts/Saira-Black.ttf
+        - asset: assets/fonts/Saira-Bold.ttf
+        - asset: assets/fonts/Saira-ExtraBold.ttf
+        - asset: assets/fonts/Saira-ExtraLight.ttf
+        - asset: assets/fonts/Saira-Light.ttf
+        - asset: assets/fonts/Saira-Medium.ttf
+        - asset: assets/fonts/Saira-Regular.ttf
+        - asset: assets/fonts/Saira-SemiBold.ttf
+        - asset: assets/fonts/Saira-Thin.ttf

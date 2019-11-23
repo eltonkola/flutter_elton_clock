@@ -20,5 +20,12 @@ void main() {
     }
 
  }
-  runApp(ClockCustomizer((ClockModel model) => EltonClock(model) ));
+
+ runApp(MaterialApp(
+   title: 'Elton Clock',
+   theme: ThemeData(fontFamily: 'Saira'),
+   home: ClockCustomizer((ClockModel model) => EltonClock(model),
+ )));
+
+//  runApp(ClockCustomizer((ClockModel model) => EltonClock(model) ));
 }

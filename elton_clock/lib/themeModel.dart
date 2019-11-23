@@ -3,19 +3,31 @@ import 'dart:ui';
 
 class ClockTheme {
 
+  final Color background;
   final Color primary;
-  final Color secondary;
-  final Color primaryAccent;
-  final Color secondaryAccent;
+  final Color primaryDark;
+  final Color accent;
+  final Color accentDark;
 
-  const ClockTheme(this.primary, this.secondary, this.primaryAccent, this.secondaryAccent);
+  const ClockTheme(this.background, this.primary, this.primaryDark, this.accent, this.accentDark);
 
 }
 
 class ClockThemeManager {
 
-  final ClockTheme light = new ClockTheme(fromHex("#757575"), fromHex("#8A8A8A"), fromHex("#C70000"), fromHex("#302F2F"));
-  final ClockTheme dark = new ClockTheme(fromHex("#756B8C"), fromHex("#D0D0D9"), fromHex("#713A91"), fromHex("#3A384D"));
+  final ClockTheme light = new ClockTheme(
+      fromHex("#FFFFFF"),
+      fromHex("#8A8A8A"),
+      fromHex("#757575"),
+      fromHex("#C70000"),
+      fromHex("#302F2F"));
+
+  final ClockTheme dark = new ClockTheme(
+      fromHex("#3A384D"),
+      fromHex("#D0D0D9"),
+      fromHex("#C5C5CC"),
+      fromHex("#713A91"),
+      fromHex("#756B8C"));
 
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();

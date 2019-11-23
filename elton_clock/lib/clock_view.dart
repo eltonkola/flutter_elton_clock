@@ -1,4 +1,4 @@
-
+import 'package:elton_clock/clock_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 import 'package:elton_clock/themeModel.dart';
 
 class ClockView extends StatelessWidget {
-
   final ClockModel model;
   final ClockTheme theme;
   final DateTime dateTime;
@@ -17,23 +16,51 @@ class ClockView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final hour = DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime);
-    final minute = DateFormat('mm').format(dateTime);
-    final second = DateFormat('ss').format(dateTime);
+    return Scaffold(
+        backgroundColor: theme.background,
 
- return Scaffold(
-        backgroundColor: theme.primary,
-        body: Center(
-          child: Column(children: <Widget>[
-              Text(
-                '$hour:$minute:$second',
-                style: TextStyle(
-                  color: theme.secondaryAccent,
-                ),
-              )
-             ])
-          ));
+        body: Padding(
+        padding: EdgeInsets.all(16.0) ,
+            child:  Column(
 
-          
+          children: <Widget>[
+            Expanded(
+              flex: 25,
+              child: ClockHeaderView(this.model, this.theme, this.dateTime),
+            ),
+            Expanded(
+              flex: 25,
+              child: Container(
+                color: Colors.yellow,
+              ),
+            ),
+            Expanded(
+              flex: 25,
+              child: Container(
+                color: Colors.red,
+              ),
+            ),
+            Expanded(
+              flex: 25,
+              child: Container(
+                color: Colors.green,
+              ),
+            ),
+          ],
+        )
+        )
+
+//        Center(
+//          child: Column(children: <Widget>[
+//              Text(
+//                '$hour:$minute:$second',
+//                style: TextStyle(
+//                  color: theme.secondaryAccent,
+//                ),
+//              )
+//             ])
+//          )
+
+        );
   }
 }
