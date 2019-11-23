@@ -15,15 +15,10 @@ class ClockHeaderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hour =
-        DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime);
-    final minute = DateFormat('mm').format(dateTime);
-    final second = DateFormat('ss').format(dateTime);
 
     return Row(children: <Widget>[
       Container(
-        child: Image.asset(
-          'assets/weather/cloud_and_sun.png',
+        child: Image.asset(getWeatherIcon(),
           fit: BoxFit.fitHeight,
           color: theme.primary,
 //          colorBlendMode: BlendMode.color,
@@ -236,4 +231,20 @@ class ClockHeaderView extends StatelessWidget {
       ],
     );
   }
+
+  String getWeatherIcon(){
+
+    final hour = int.parse(DateFormat('HH').format(dateTime));
+    String ikona = model.weatherString;
+    if(ikona == 'sunny'){
+      //TODO - find a better way to show night or day icon
+      if(hour > 7 && hour < 19){
+        ikona = 'sunny_day';
+      }else{
+        ikona = 'sunny_night';
+      }
+    }
+    return 'assets/weather/$ikona.png';
+  }
+
 }

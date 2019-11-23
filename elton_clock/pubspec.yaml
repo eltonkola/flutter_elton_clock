@@ -19,8 +19,20 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets :
-    - assets/weather/cloud_and_sun.png
+    - assets/weather/cloudy.png
+    - assets/weather/foggy.png
+    - assets/weather/rainy.png
+    - assets/weather/snowy.png
+    - assets/weather/sunny_day.png
+    - assets/weather/sunny_night.png
+    - assets/weather/thunderstorm.png
+    - assets/weather/windy.png
+
     - assets/icons/ic_calendar.png
+    - assets/icons/ic_hours.png
+    - assets/icons/ic_minutes.png
+    - assets/icons/ic_seconds.png
+    - assets/icons/ic_now.png
 
 
   fonts:
