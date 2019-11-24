@@ -32,7 +32,7 @@ class ClockProgressView extends StatelessWidget {
     List<ProgressStep> steps = new List();
 
     if(stepped){
-      steps.add(ProgressStep(0, false, false, false, true));
+      steps.add(ProgressStep(0, false, value == 0, false, true));
     }
 
     for(int i = 1; i <= total; i++){

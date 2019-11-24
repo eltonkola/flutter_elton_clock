@@ -67,9 +67,14 @@ class ClockProgressStepView extends StatelessWidget {
         rotation = 1;
       }
 
+      String label = step.value.toString();
+//      if(step.value == 60){
+//        label = '-';
+//      }
+
       return RotatedBox(
         quarterTurns: rotation,
-        child:  Text(step.value.toString(),
+        child:  Text(label,
 //          maxLines: 1,
           style: TextStyle(
             fontFamily: 'Saira',
@@ -102,7 +107,7 @@ class ClockProgressStepView extends StatelessWidget {
         width: 16,
 //        alignment: Alignment.topLeft,
         height: 16,
-//        color: theme.primaryDark,
+        color: theme.accent,
       );
     } else {
       return Container(

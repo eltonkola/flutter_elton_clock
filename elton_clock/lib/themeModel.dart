@@ -30,7 +30,7 @@ class ClockThemeManager {
       fromHex("#C5C5CC"),
       fromHex("#713A91"),
       fromHex("#756B8C"),
-      fromHex("#40FFFFFF"));
+      fromHex("#00FFFFFF"));
 
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();
