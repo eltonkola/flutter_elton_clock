@@ -1,15 +1,24 @@
-# Flutter Clock
+# Elton Clock
 
-Welcome to Flutter Clock!
+This is the elton watch, made for https://flutter.dev/clock
+It has a light theme and a dark theme, and displays sample weather and location data.
 
-See [flutter.dev/clock](https://flutter.dev/clock) for how to get started, submission requirements, contest rules, and FAQs.
+<img src='screenshots/preview.gif' width='350'>
 
-See a [live demo](https://maryx.github.io/flutter_clock) with Flutter for Web!
+<img src='screenshots/Screenshot_dark.png' width='350'>
 
-Example [Analog Clock](analog_clock)
+<img src='screenshots/Screenshot_settings.png' width='350'>
 
-<img src='analog_clock/analog.gif' width='350'>
+<img src='screenshots/Screenshot_ling.png' width='350'>
 
-Example [Digital Clock](digital_clock)
 
-<img src='digital_clock/digital.gif' width='350'>
+#run web
+flutter run -d chrome
+flutter run -d Linux
+
+#build web
+flutter build web
+
+Licence: 
+
+https://opensource.org/licenses/BSD-3-Clause
