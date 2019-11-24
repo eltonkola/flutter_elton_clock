@@ -13,8 +13,9 @@ class ProgressStep {
   final bool isLast;
   final bool isCurrent;
   final bool isShort;
+  final bool rotate;
 
-  const ProgressStep(this.value, this.isLast, this.isCurrent, this.isShort);
+  const ProgressStep(this.value, this.isLast, this.isCurrent, this.isShort, this.rotate);
 
 }
 
@@ -29,15 +30,22 @@ class ClockProgressView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<ProgressStep> steps = new List();
+
+    if(stepped){
+      steps.add(ProgressStep(0, false, false, false, true));
+    }
+
     for(int i = 1; i <= total; i++){
       bool isShort = false;
       if(stepped) {
         isShort = !(i % 5 == 0) && stepped;
       }
-      steps.add(ProgressStep(i, i == total, i ==value, isShort));
+      steps.add(ProgressStep(i, i == total, i ==value, isShort, total > 24));
     }
 
-    return Container(
+    return Padding(
+        padding: EdgeInsets.only(top: 10) ,
+    child:Container(
       height: double.infinity,
       width: double.infinity,
       child: Row(
@@ -47,6 +55,6 @@ class ClockProgressView extends StatelessWidget {
         ).toList(),
 
       ),
-    );
+    ));
   }
 }

@@ -62,22 +62,30 @@ class ClockProgressStepView extends StatelessWidget {
         color = theme.accent;
       }
 
-      return Text(step.value.toString(),
+      int rotation = 0;
+      if(step.rotate){
+        rotation = 1;
+      }
+
+      return RotatedBox(
+        quarterTurns: rotation,
+        child:  Text(step.value.toString(),
 //          maxLines: 1,
           style: TextStyle(
             fontFamily: 'Saira',
-//            height: 1,
+            height: 1,
             fontSize: 12,
             color: color ,
-            fontWeight: FontWeight.w400,
-//          shadows: [
-//            Shadow(
-//              blurRadius: 4.0,
-//              color: theme.primaryDark,
-//              offset: Offset(5.0, 5.0),
-//            ),
-//          ],
-          ));
+            fontWeight: FontWeight.w600,
+          shadows: [
+            Shadow(
+              blurRadius: 4.0,
+              color: theme.shadow,
+              offset: Offset(0.0, 4.0),
+            ),
+          ],
+          )),
+      );
     }else {
       return Container(
         color: theme.background,
@@ -91,16 +99,16 @@ class ClockProgressStepView extends StatelessWidget {
     if (step.isCurrent) {
       return Image.asset(
         'assets/icons/ic_now.png',
-        width: 10,
+        width: 16,
 //        alignment: Alignment.topLeft,
-        height: 10,
+        height: 16,
 //        color: theme.primaryDark,
       );
     } else {
       return Container(
         color: theme.background,
-        width: 10,
-        height: 10,
+        width: 16,
+        height: 16,
       );
     }
   }

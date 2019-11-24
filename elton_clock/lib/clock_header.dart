@@ -16,18 +16,24 @@ class ClockHeaderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Row(children: <Widget>[
+    return Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
       Container(
+        width: 82,
+        height: 82,
+
         child: Image.asset(getWeatherIcon(),
-          fit: BoxFit.fitHeight,
-          color: theme.primary,
+          fit: BoxFit.fill,
+          color: theme.primaryDark,
 //          colorBlendMode: BlendMode.color,
         ),
       ),
       Expanded(
           flex: 60,
           child: Padding(
-            padding: const EdgeInsets.only(top: 4.0, left: 8.0, bottom: 4.0), //EdgeInsets.all(4.0),
+            padding: const EdgeInsets.only(top: 4.0, left: 16.0, bottom: 4.0), //EdgeInsets.all(4.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -41,14 +47,14 @@ class ClockHeaderView extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Saira',
                     height: 1,
-                    fontSize: 32,
-                    color: theme.primary,
+                    fontSize: 38,
+                    color: theme.primaryDark,
                     fontWeight: FontWeight.bold,
                     shadows: [
                       Shadow(
-                        blurRadius: 6.0,
-                        color: theme.primaryDark,
-                        offset: Offset(4.0, 6.0),
+                        blurRadius: 4.0,
+                        color: theme.shadow,
+                        offset: Offset(0.0, 4.0),
                       ),
                     ],
                   ),
@@ -56,36 +62,19 @@ class ClockHeaderView extends StatelessWidget {
                 Spacer(
                   flex: 1,
                 ),
-                Text('${model.weatherString} / ${model.temperatureString}',
+                // - !${model.lowString} / !${model.highString}
+                Text('${model.weatherString} - ${model.temperatureString}',
                     style: TextStyle(
                       fontFamily: 'Saira',
                       height: 1,
                       fontSize: 32,
-                      color: theme.primary,
+                      color: theme.primaryDark,
                       fontWeight: FontWeight.w600,
                       shadows: [
                         Shadow(
-                          blurRadius: 10.0,
-                          color: theme.primaryDark,
-                          offset: Offset(5.0, 5.0),
-                        ),
-                      ],
-                    )),
-                Spacer(
-                  flex: 1,
-                ),
-                Text('min: ${model.lowString} / max: ${model.highString}',
-                    style: TextStyle(
-                      fontFamily: 'Saira',
-                      height: 1,
-                      fontSize: 16,
-                      color: theme.primary,
-                      fontWeight: FontWeight.w600,
-                      shadows: [
-                        Shadow(
-                          blurRadius: 10.0,
-                          color: theme.primaryDark,
-                          offset: Offset(5.0, 5.0),
+                          blurRadius: 4.0,
+                          color: theme.shadow,
+                          offset: Offset(0.0, 4.0),
                         ),
                       ],
                     )),
@@ -114,11 +103,9 @@ class ClockHeaderView extends StatelessWidget {
         Spacer(
           flex: 1,
         ),
-        Expanded(
-          flex: 70,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
+        Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
 
             children: <Widget>[
               Text('$hour',
@@ -131,9 +118,9 @@ class ClockHeaderView extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     shadows: [
                       Shadow(
-                        blurRadius: 10.0,
-                        color: theme.primaryDark,
-                        offset: Offset(5.0, 5.0),
+                        blurRadius: 4.0,
+                        color: theme.shadow,
+                        offset: Offset(0.0, 4.0),
                       ),
                     ],
 
@@ -147,9 +134,9 @@ class ClockHeaderView extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     shadows: [
                       Shadow(
-                        blurRadius: 10.0,
-                        color: theme.primaryDark,
-                        offset: Offset(5.0, 5.0),
+                        blurRadius: 4.0,
+                        color: theme.shadow,
+                        offset: Offset(0.0, 4.0),
                       ),
                     ],
                   )),
@@ -162,15 +149,16 @@ class ClockHeaderView extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     shadows: [
                       Shadow(
-                        blurRadius: 10.0,
-                        color: theme.primaryDark,
-                        offset: Offset(5.0, 5.0),
+                        blurRadius: 4.0,
+                        color: theme.shadow,
+                        offset: Offset(0.0, 4.0),
                       ),
                     ],
                   )),
               Container(
                   alignment: Alignment.topLeft,
-                  margin: const EdgeInsets.only(top: 10.0),
+//                  margin: const EdgeInsets.only(top: 10.0),
+
                   child: Text('$amPm',
                       style: TextStyle(
                         fontFamily: 'Saira',
@@ -180,19 +168,18 @@ class ClockHeaderView extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         shadows: [
                           Shadow(
-                            blurRadius: 10.0,
-                            color: theme.primaryDark,
-                            offset: Offset(5.0, 5.0),
+                            blurRadius: 4.0,
+                            color: theme.shadow,
+                            offset: Offset(0.0, 4.0),
                           ),
                         ],
                       ))),
             ],
           ),
-        ),
-        Expanded(
-          flex: 30,
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+
+        Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
             Container(
               child: Image.asset(
@@ -200,13 +187,13 @@ class ClockHeaderView extends StatelessWidget {
                 width: 16,
                 alignment: Alignment.topLeft,
                 height: 16,
-                color: theme.primaryDark,
+                color: theme.primary,
               ),
             ),
             Container(width: 4,),
             Container(
             alignment: Alignment.topLeft,
-            margin: const EdgeInsets.only(top: 8.0, left: 4.0),
+//            margin: const EdgeInsets.only(top: 8.0, left: 4.0),
             child: Text('$fullDate',
                         style: TextStyle(
                           fontFamily: 'Saira',
@@ -216,15 +203,14 @@ class ClockHeaderView extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           shadows: [
                             Shadow(
-                              blurRadius: 10.0,
-                              color: theme.primaryDark,
-                              offset: Offset(5.0, 5.0),
+                              blurRadius: 4.0,
+                              color: theme.shadow,
+                              offset: Offset(0.0, 4.0),
                             ),
                           ],
                         ))),
 
           ]),
-        ),
         Spacer(
           flex: 1,
         ),
