@@ -63,49 +63,45 @@ class ClockProgressStepView extends StatelessWidget {
       }
 
       int rotation = 0;
-      if(step.rotate){
+      if (step.rotate) {
         rotation = 1;
       }
 
       String label = step.value.toString();
-//      if(step.value == 60){
-//        label = '-';
-//      }
 
       return RotatedBox(
         quarterTurns: rotation,
-        child:  Text(label,
+        child: Text(label,
 //          maxLines: 1,
-          style: TextStyle(
-            fontFamily: 'Saira',
-            height: 1,
-            fontSize: 12,
-            color: color ,
-            fontWeight: FontWeight.w600,
-          shadows: [
-            Shadow(
-              blurRadius: 4.0,
-              color: theme.shadow,
-              offset: Offset(0.0, 4.0),
-            ),
-          ],
-          )),
+            style: TextStyle(
+              fontFamily: 'Saira',
+              height: 1,
+              fontSize: 12,
+              color: color,
+              fontWeight: FontWeight.w600,
+              shadows: [
+                Shadow(
+                  blurRadius: 4.0,
+                  color: theme.shadow,
+                  offset: Offset(0.0, 4.0),
+                ),
+              ],
+            )),
       );
-    }else {
+    } else {
       return Container(
         color: theme.background,
         width: 10,
         height: 10,
       );
     }
-    }
+  }
 
   Widget getIndicator() {
     if (step.isCurrent) {
       return Image.asset(
         'assets/icons/ic_now.png',
         width: 16,
-//        alignment: Alignment.topLeft,
         height: 16,
         color: theme.accent,
       );

@@ -137,7 +137,6 @@ class ClockView extends StatelessWidget {
           Container(
             alignment: Alignment.topLeft,
             margin: const EdgeInsets.only(top: 10.0),
-
             child: Text(timeVal,
                 style: TextStyle(
                   fontFamily: 'Saira',

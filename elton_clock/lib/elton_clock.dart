@@ -19,7 +19,7 @@ class _EltonClockState extends State<EltonClock> {
   DateTime _dateTime = DateTime.now();
   Timer _timer;
 
-  final ClockThemeManager themeManager =  new ClockThemeManager();
+  final ClockThemeManager themeManager = new ClockThemeManager();
 
   @override
   void initState() {
@@ -55,25 +55,18 @@ class _EltonClockState extends State<EltonClock> {
   void _updateTime() {
     setState(() {
       _dateTime = DateTime.now();
-      // Update once per minute. If you want to update every second, use the
-      // following code.
       _timer = Timer(
-        Duration(seconds: 1) -
-            Duration(milliseconds: _dateTime.millisecond),
+        Duration(seconds: 1) - Duration(milliseconds: _dateTime.millisecond),
         _updateTime,
       );
-      // Update once per second, but make sure to do it at the beginning of each
-      // new second, so that the clock is accurate.
-      // _timer = Timer(
-      //   Duration(seconds: 1) - Duration(milliseconds: _dateTime.millisecond),
-      //   _updateTime,
-      // );
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).brightness == Brightness.light ? themeManager.light :themeManager.dark;
+    final theme = Theme.of(context).brightness == Brightness.light
+        ? themeManager.light
+        : themeManager.dark;
     return ClockView(widget.model, theme, _dateTime);
   }
 }

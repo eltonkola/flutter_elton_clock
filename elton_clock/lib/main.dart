@@ -8,24 +8,20 @@ import 'elton_clock.dart';
 import 'dart:io' show Platform;
 
 void main() {
- if (!kIsWeb) {
-   
+  if (!kIsWeb) {
     if (Platform.isMacOS) {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     } else if (Platform.isWindows) {
       debugDefaultTargetPlatformOverride = TargetPlatform.android;
-    }else if(Platform.isLinux) {
-       debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
-
+    } else if (Platform.isLinux) {
+      debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
     }
+  }
 
- }
-
- runApp(MaterialApp(
-   title: 'Elton Clock',
-   theme: ThemeData(fontFamily: 'Saira'),
-   home: ClockCustomizer((ClockModel model) => EltonClock(model),
- )));
-
-//  runApp(ClockCustomizer((ClockModel model) => EltonClock(model) ));
+  runApp(MaterialApp(
+      title: 'Elton Clock',
+      theme: ThemeData(fontFamily: 'Saira'),
+      home: ClockCustomizer(
+        (ClockModel model) => EltonClock(model),
+      )));
 }
